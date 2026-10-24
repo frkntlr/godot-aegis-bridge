@@ -1,0 +1,10 @@
+# Godot 4.x .gitignore
+.godot/
+*.translation
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Aegis runtime telemetry cache
+.aegis/

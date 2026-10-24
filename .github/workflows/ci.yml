@@ -1,0 +1,24 @@
+name: Godot Addon CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify Addon Structure
+        run: |
+          test -f addons/aegis_bridge/plugin.cfg
+          test -f addons/aegis_bridge/plugin.gd
+          test -f addons/aegis_bridge/aegis_client.gd
+          test -f addons/aegis_bridge/ui_verifier.gd
+          test -f addons/aegis_bridge/synthetic_player.gd
+          test -f addons/aegis_bridge/compat_bridge.gd
+          echo "All Aegis Bridge addon files verified!"
